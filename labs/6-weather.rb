@@ -30,3 +30,26 @@ weather_data = {
     { temperature: 60, conditions: "Rainy", precipitation: 0.9 }
   ]
 }
+current_temperature = weather_data[:current][:temperature]
+current_conditions = weather_data[:current][:conditions]
+p "Currently it is #{current_temperature} and #{current_conditions}"
+
+p "Forecast for the next 7 days: "
+index = 0
+loop do
+  if index == 7
+    break
+  end
+  temperature = weather_data[:forecast][index][:temperature]
+  conditions = weather_data[:forecast][index][:conditions]
+  precipitation = weather_data[:forecast][index][:precipitation]
+
+  if precipitation > 0.50 && conditions == "Rainy"
+    p "#{temperature} degrees and #{conditions}"
+  elsif precipitation > 0.50 && conditions != "Rainy"
+    p "#{temperature} degrees and #{conditions} with a #{precipitation*100}% chance of rain"
+  else
+    p "#{temperature} degrees and #{conditions}"
+  end
+  index = index +1 
+end 
