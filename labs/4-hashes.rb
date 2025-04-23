@@ -40,3 +40,8 @@ p "#{bitcoin} Bitcoin is worth $#{bitcoin_worth} USD"
 
 # 1 Bitcoin is valued at $41405.1046 USD.
 # Your Bitcoin is worth $62107.6569.
+
+bitcoin_value = bitcoin_data["USD"]["last"]
+bitcoin_worth = bitcoin_value*bitcoin
+p "1 bitcoin is valued at $#{bitcoin_value}"
+p "Your bitcoin is worth $#{bitcoin_worth}"
